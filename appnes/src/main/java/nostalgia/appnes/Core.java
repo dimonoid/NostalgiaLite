@@ -1,6 +1,6 @@
 package nostalgia.appnes;
 
-import nostalgia.framework.base.JniBridge;
+        import nostalgia.framework.base.JniBridge;
 
 public class Core extends JniBridge {
     private static Core instance = new Core();

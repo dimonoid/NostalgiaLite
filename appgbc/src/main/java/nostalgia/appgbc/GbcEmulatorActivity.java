@@ -1,5 +1,9 @@
 package nostalgia.appgbc;
 
+import android.content.Intent;
+import android.os.Bundle;
+
+import nostalgia.framework.AdActivity;
 import nostalgia.framework.Emulator;
 import nostalgia.framework.base.EmulatorActivity;
 
@@ -19,6 +23,18 @@ public class GbcEmulatorActivity extends EmulatorActivity {
             + "	vec4 res = vec4(r, g, b, 1.0);             "
             + "	gl_FragColor.rgba = res;                   "
             + "}                                           ";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        //added ads on game loading...
+        Intent ads = new Intent(this, AdActivity.class);//
+        ads.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(ads);
+        //
+        //isLastOfStack = checkLastStack();
+    }
 
     @Override
     public Emulator getEmulatorInstance() {

@@ -6,15 +6,23 @@ import android.os.Bundle;
 
 import java.util.List;
 
+import nostalgia.framework.AdActivity;
 import nostalgia.framework.Emulator;
 import nostalgia.framework.base.EmulatorActivity;
 import nostalgia.framework.ui.preferences.PreferenceUtil;
 
 public class NesEmulatorActivity extends EmulatorActivity {
     private boolean isLastOfStack = false;
+    //Intent ads;//
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //added ads on game loading...
+        Intent ads = new Intent(this, AdActivity.class);//
+        ads.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(ads);
+        //
         isLastOfStack = checkLastStack();
     }
     String shader1 = "precision mediump float;"
